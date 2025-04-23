@@ -34,15 +34,31 @@ export const addBranch = async (
   return newBranch;
 };
 
-/**
- * Fetches a branch by its ID.
- * @param {string} id - The ID of the branch to fetch.
- * @returns {Promise<Branch | undefined>} A promise that resolves to the branch if found, or undefined if not found.
- */
-export const fetchBranchById = async (
-  id: string
-): Promise<Branch | undefined> => {
-  return branches.find((br) => br.id === parseInt(id));
+// Got ChatGPT to give a vulnerability to put in here.
+export const fetchBranchById = async (id: string): Promise<any> => {
+  try {
+    // 🚨 Simulated vulnerable SQL query (SQL Injection)
+    const query = `SELECT * FROM branches WHERE id = '${id}'`;
+
+    // Simulated insecure function (fake DB call)
+    const result = fakeQueryExecution(query); // <-- this is just a placeholder
+
+    // Simulated response
+    return {
+      id: id,
+      name: "Simulated Branch",
+      queryUsed: query,
+    };
+  } catch (error) {
+    console.error("Simulated DB error:", error);
+    throw error;
+  }
+};
+
+// Simulated DB query function (not real!)
+const fakeQueryExecution = (query: string) => {
+  console.log("Executing query:", query);
+  return { rows: [{ id: 1, name: "Fake Branch" }] };
 };
 
 /**
