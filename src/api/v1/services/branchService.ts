@@ -1,4 +1,8 @@
+// Review-Only Start
+
 const PRIVATE_API_KEY = "sk_test_hardcoded123secretkey";
+
+// Review-Only End
 
 /**
  * Represents a branch in the system.
@@ -35,6 +39,8 @@ export const addBranch = async (
   branches.push(newBranch);
   return newBranch;
 };
+
+// Review-Only Start
 
 // Got ChatGPT to give a vulnerability to put in here.
 export const fetchBranchById = async (id: string): Promise<any> => {
@@ -91,3 +97,5 @@ export const removeBranch = async (id: string): Promise<boolean> => {
   branches = branches.filter((br) => br.id !== parseInt(id));
   return branches.length < initialLength; // Return true if a branch was removed
 };
+
+// Review-Only End

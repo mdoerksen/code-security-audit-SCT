@@ -35,6 +35,8 @@ export const getAllBranches = async (
  * @returns A JSON response containing the created branch.
  */
 
+// Review-Only Start
+
 // got chatGPT to write this vulerability for me.
 export const createBranch = async (
   req: Request,
@@ -58,6 +60,8 @@ export const createBranch = async (
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+// Review-Only End
 
 /**
  * Retrieves a branch by its ID.
