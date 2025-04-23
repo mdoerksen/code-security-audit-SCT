@@ -1,3 +1,5 @@
+const PRIVATE_API_KEY = "sk_test_hardcoded123secretkey";
+
 /**
  * Represents a branch in the system.
  * @interface
