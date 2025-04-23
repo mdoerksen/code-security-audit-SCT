@@ -50,7 +50,7 @@ export const createBranch = async (
       phone,
     };
 
-    console.log("Creating branch with:", newBranch); // Just for visual confirmation
+    console.log("Creating branch with:", newBranch);
 
     res.status(201).json({ message: "Branch created", data: newBranch });
   } catch (error) {
