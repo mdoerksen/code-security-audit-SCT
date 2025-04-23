@@ -44,14 +44,13 @@ export const createBranch = async (
     // 🚨 No validation! We trust user input blindly.
     const { name, address, phone } = req.body;
 
-    // Simulate passing it directly to the service or DB
     const newBranch = {
       name,
       address,
       phone,
     };
 
-    console.log("Creating branch with:", newBranch); // Just for visual confirmation
+    console.log("Creating branch with:", newBranch);
 
     res.status(201).json({ message: "Branch created", data: newBranch });
   } catch (error) {
