@@ -34,17 +34,29 @@ export const getAllBranches = async (
  * @param res - The response object.
  * @returns A JSON response containing the created branch.
  */
+
+// got chatGPT to write this vulerability for me.
 export const createBranch = async (
   req: Request,
   res: Response
 ): Promise<void> => {
   try {
-    const newBranch: Branch = req.body;
-    const createdBranch = await branchService.addBranch(newBranch);
-    res.status(201).json({ message: "Branch created", data: createdBranch });
+    // 🚨 No validation! We trust user input blindly.
+    const { name, address, phone } = req.body;
+
+    // Simulate passing it directly to the service or DB
+    const newBranch = {
+      name,
+      address,
+      phone,
+    };
+
+    console.log("Creating branch with:", newBranch); // Just for visual confirmation
+
+    res.status(201).json({ message: "Branch created", data: newBranch });
   } catch (error) {
     console.error("Error creating branch:", error);
-    res.status(400).json({ message: "Bad Request" });
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
