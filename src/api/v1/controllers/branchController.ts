@@ -44,7 +44,6 @@ export const createBranch = async (
     // 🚨 No validation! We trust user input blindly.
     const { name, address, phone } = req.body;
 
-    // Simulate passing it directly to the service or DB
     const newBranch = {
       name,
       address,
